@@ -1,0 +1,29 @@
+.nav {
+  position: fixed;
+  top: 0px;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
+
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.nav-black {
+  background-color: #111;
+}
+
+.nav img:first-child {
+  position: fixed;
+  width: 80px;
+  object-fit: contain;
+  left: 20px;
+}
+.nav img:last-child {
+  position: fixed;
+  width: 30px;
+  object-fit: contain;
+  right: 20px;
+}
