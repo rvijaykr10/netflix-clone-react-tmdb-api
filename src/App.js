@@ -5,6 +5,7 @@ import "./App.css";
 import Banner from "./Banner";
 import Nav from "./Nav";
 
+const { REACT_APP_KEY } = process.env;
 function App() {
   const [random, setRandom] = useState([]);
   const [originals, setOriginals] = useState([]);
@@ -22,58 +23,59 @@ function App() {
     const tmdb = async () => {
       // RANDOM ORIGINAL
       let randomData = await axios.get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.YOUR_KEY}&with_networks=213`
+        `https://api.themoviedb.org/3/discover/tv?api_key=${REACT_APP_KEY}&with_networks=213`
       );
       const total = await randomData.data.results.length;
+      console.log(total);
       const randomResult = await randomData.data.results[
         Math.floor(Math.random() * total)
       ];
       setRandom(randomResult);
       // ORIGINAL
       let originalData = await axios.get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.YOUR_KEY}&with_networks=213`
+        `https://api.themoviedb.org/3/discover/tv?api_key=${REACT_APP_KEY}&with_networks=213`
       );
       const originalResult = await originalData.data.results;
       setOriginals(originalResult);
       // TRENDING
       let trendingData = await axios.get(
-        `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.YOUR_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/trending/all/week?api_key=${REACT_APP_KEY}&language=en-US`
       );
       const trendingResult = await trendingData.data.results;
       setTrending(trendingResult);
       // TOPRATED
       let topRatedData = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.YOUR_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${REACT_APP_KEY}&language=en-US`
       );
       const topRatedResult = await topRatedData.data.results;
       setTopRated(topRatedResult);
       // ACTION
       let actionData = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.YOUR_KEY}&with_genres=28`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=28`
       );
       const actionResult = await actionData.data.results;
       setAction(actionResult);
       // COMEDY
       let comedyData = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.YOUR_KEY}&with_genres=35`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=35`
       );
       const comedyResult = await comedyData.data.results;
       setComedy(comedyResult);
       // HORROR
       let horrorData = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.YOUR_KEY}&with_genres=27`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=27`
       );
       const horrorResult = await horrorData.data.results;
       setHorror(horrorResult);
       // ROMANTIC
       let romanticData = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.YOUR_KEY}&with_genres=10749`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=10749`
       );
       const romanticResult = await romanticData.data.results;
       setRomantic(romanticResult);
       // DOCUMENTARIES;
       let documentariesData = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.YOUR_KEY}&with_genres=99`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=99`
       );
       const documentariesResult = await documentariesData.data.results;
       console.log(documentariesResult);
